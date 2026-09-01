@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alok Kumar — Portfolio | Computer Science & Engineering</title>
+  
+  <!-- Meta description for academic & professional presentation -->
+  <meta name="description" content="Personal Portfolio of Alok Kumar, B.Tech CSE student at Lovely Professional University. Showcasing software & IoT projects, technical skills, and academic profile." />
+  
+  <!-- Fonts: Plus Jakarta Sans, Space Grotesk & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Tailwind CSS CDN for responsive layout -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom refined styling & presentation utilities */
+    ::selection {
+      background-color: #0284c7;
+      color: #ffffff;
+    }
+
+    /* Subtle grid background pattern */
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Custom smooth scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0F19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1F2937;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0284c7;
+    }
+
+    /* Presentation mode high-contrast highlight */
+    .presentation-focus {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .presentation-focus:hover {
+      transform: translateY(-3px);
+      border-color: rgba(2, 132, 199, 0.5);
+      box-shadow: 0 12px 30px -10px rgba(2, 132, 199, 0.15);
+    }
+
+    /* Badge pulse */
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .pulse-dot {
+      animation: pulse-subtle 2s infinite ease-in-out;
+    }
+  </style>
+</head>
+
+<body class="bg-[#0B0F19] text-slate-200 font-sans antialiased relative selection:bg-brand-500 selection:text-white min-h-screen">
+
+  <!-- Background Decorative Grid -->
+  <div class="fixed inset-0 bg-grid-pattern opacity-60 pointer-events-none z-0"></div>
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-brand-500/5 blur-[120px] pointer-events-none z-0"></div>
+
+  <!-- ==================== HEADER & NAVIGATION ==================== -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0B0F19]/85 border-b border-slate-800/80 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo / Monogram -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500 to-sky-700 flex items-center justify-center text-white font-display font-bold text-lg shadow-sm group-hover:scale-105 transition-transform">
+          AK
+        </div>
+        <div>
+          <span class="font-display font-bold text-slate-100 tracking-tight text-base block group-hover:text-brand-200 transition-colors">Alok Kumar</span>
+          <span class="text-xs text-slate-400 font-mono">B.Tech CSE &bull; LPU</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 font-medium text-sm text-slate-300">
+        <a href="#hero" class="px-3 py-1.5 rounded-md hover:text-white hover:bg-slate-800/60 transition-all">About</a>
+        <a href="#education" class="px-3 py-1.5 rounded-md hover:text-white hover:bg-slate-800/60 transition-all">Education</a>
+        <a href="#skills" class="px-3 py-1.5 rounded-md hover:text-white hover:bg-slate-800/60 transition-all">Skills</a>
+        <a href="#projects" class="px-3 py-1.5 rounded-md hover:text-white hover:bg-slate-800/60 transition-all">Projects</a>
+        <a href="#activities" class="px-3 py-1.5 rounded-md hover:text-white hover:bg-slate-800/60 transition-all">Volunteering</a>
+        <a href="#certifications" class="px-3 py-1.5 rounded-md hover:text-white hover:bg-slate-800/60 transition-all">Certificates</a>
+        <a href="#contact" class="px-3 py-1.5 rounded-md hover:text-white hover:bg-slate-800/60 transition-all">Contact</a>
+      </nav>
+
+      <!-- Action Buttons (Presentation Mode + Contact Button) -->
+      <div class="flex items-center gap-2">
+        <button id="presModeBtn" onclick="togglePresentationGuide()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-md bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors" title="Toggle 4-minute presentation tips">
+          <i data-lucide="presentation" class="w-3.5 h-3.5 text-brand-500"></i>
+          <span>Presentation Guide</span>
+        </button>
+
+        <a href="#contact" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium font-display rounded-md bg-brand-500 hover:bg-brand-600 text-white shadow-sm hover:shadow transition-all">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <span>Get in Touch</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle menu">
+          <i data-lucide="menu" id="menuIcon" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Nav -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-800 bg-[#0B0F19]/95 px-4 pt-3 pb-4 space-y-1 backdrop-blur-lg">
+      <a href="#hero" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">About</a>
+      <a href="#education" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Education</a>
+      <a href="#skills" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Skills</a>
+      <a href="#projects" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Projects</a>
+      <a href="#activities" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Volunteering</a>
+      <a href="#certifications" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Certificates</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Contact</a>
+    </div>
+  </header>
+
+  <!-- ==================== PRESENTATION GUIDE BANNER (Interactive Helper) ==================== -->
+  <div id="presentationBanner" class="hidden relative z-40 bg-slate-900/95 border-b border-brand-500/30 px-4 py-3 transition-all duration-300">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center justify-center p-1 rounded bg-brand-500/20 text-brand-200 font-mono font-bold">
+          <i data-lucide="mic" class="w-3.5 h-3.5"></i>
+        </span>
+        <div>
+          <strong class="text-white font-display">4-Minute Presentation Walkthrough:</strong>
+          <span class="text-slate-300">1. Introduction (30s) &rarr; 2. Education &amp; Academic Scores (45s) &rarr; 3. Technical Skills Summary (45s) &rarr; 4. Key Projects &amp; Architecture (90s) &rarr; 5. Volunteering &amp; Certificates (30s).</span>
+        </div>
+      </div>
+      <button onclick="togglePresentationGuide()" class="text-slate-400 hover:text-white text-xs font-mono flex items-center gap-1 self-end sm:self-center">
+        <span>Close</span> &times;
+      </button>
+    </div>
+  </div>
+
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-24">
+
+    <!-- ==================== 01 — HERO / INTRODUCTION SECTION ==================== -->
+    <section id="hero" class="pt-6 sm:pt-12 scroll-mt-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left: Text & Pitch -->
+        <div class="lg:col-span-8 space-y-6">
+          
+          <!-- Status Pill -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700/70 text-xs font-mono text-slate-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
+            <span>Computer Science &amp; Engineering Student</span>
+          </div>
+
+          <!-- Main Heading -->
+          <div class="space-y-2">
+            <h1 class="text-3xl sm:text-5xl font-display font-bold tracking-tight text-white leading-tight">
+              Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-brand-200">Alok Kumar</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-300 font-medium">
+              Aspiring Software Developer &amp; Tech Enthusiast
+            </p>
+          </div>
+
+          <!-- Bio / Short Intro -->
+          <p class="text-slate-300 leading-relaxed text-sm sm:text-base max-w-2xl">
+            Currently pursuing my <strong>B.Tech in Computer Science and Engineering</strong> at Lovely Professional University (CGPA: 8.0). Focused on building responsive web applications with JavaScript, crafting embedded systems with Arduino &amp; C++, and solving algorithmic problems with clean, practical code.
+          </p>
+
+          <!-- Quick Fact Badges for Presentation -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+            <div class="bg-slate-900/70 border border-slate-800 rounded-lg p-3">
+              <span class="text-xs text-slate-400 font-mono block">Academic Score</span>
+              <span class="text-lg font-bold text-white font-display">8.0 CGPA</span>
+              <span class="text-[11px] text-slate-400 block mt-0.5">Lovely Professional Univ.</span>
+            </div>
+            <div class="bg-slate-900/70 border border-slate-800 rounded-lg p-3">
+              <span class="text-xs text-slate-400 font-mono block">Core Focus</span>
+              <span class="text-lg font-bold text-white font-display">Web &amp; C++</span>
+              <span class="text-[11px] text-slate-400 block mt-0.5">JS &bull; Python &bull; SQL &bull; Arduino</span>
+            </div>
+            <div class="bg-slate-900/70 border border-slate-800 rounded-lg p-3 col-span-2 sm:col-span-1">
+              <span class="text-xs text-slate-400 font-mono block">Community Service</span>
+              <span class="text-lg font-bold text-emerald-400 font-display">30 Hours</span>
+              <span class="text-[11px] text-slate-400 block mt-0.5">Govt. School Teaching</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons & Contact Quick Links -->
+          <div class="flex flex-wrap items-center gap-3 pt-3">
+            <a href="mailto:alokyt776209@gmail.com" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-brand-500 hover:bg-brand-600 text-white font-medium text-sm transition-all shadow-sm">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>alokyt776209@gmail.com</span>
+            </a>
+            <a href="tel:6202735894" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium text-sm transition-all">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              <span>+91 6202735894</span>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 text-sm transition-all" title="Alok's GitHub">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span class="hidden sm:inline">GitHub</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 text-sm transition-all" title="Alok's LinkedIn">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+              <span class="hidden sm:inline">LinkedIn</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right: Professional Visual Card -->
+        <div class="lg:col-span-4 flex justify-center">
+          <div class="relative w-full max-w-sm rounded-2xl bg-gradient-to-b from-slate-800 to-slate-900 p-1 border border-slate-700/80 shadow-2xl">
+            <div class="rounded-[14px] bg-[#0F1626] p-6 space-y-5">
+              
+              <!-- Avatar Container -->
+              <div class="flex items-center gap-4">
+                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-600 via-sky-600 to-indigo-700 flex items-center justify-center text-white font-display font-bold text-3xl shadow-inner ring-4 ring-slate-800">
+                  AK
+                </div>
+                <div>
+                  <h2 class="font-display font-bold text-white text-lg">Alok Kumar</h2>
+                  <p class="text-xs text-slate-400 font-mono">CSE Undergraduate</p>
+                  <div class="flex items-center gap-1.5 mt-2 text-xs text-brand-200">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                    <span>Phagwara &bull; Patna &bull; Gaya</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-t border-slate-800 pt-4 space-y-2.5 text-xs text-slate-300">
+                <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+                  <span class="text-slate-400">Department</span>
+                  <span class="font-medium text-white">Computer Science &amp; Engg.</span>
+                </div>
+                <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+                  <span class="text-slate-400">University</span>
+                  <span class="font-medium text-white">Lovely Professional Univ.</span>
+                </div>
+                <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+                  <span class="text-slate-400">Graduation Target</span>
+                  <span class="font-medium text-brand-200 font-mono">Aug 2029</span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-slate-400">Current Standing</span>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 font-bold font-mono">CGPA 8.0</span>
+                </div>
+              </div>
+
+              <!-- Quick Quote / Objective -->
+              <div class="p-3 rounded-lg bg-slate-900/90 border border-slate-800 text-[11px] text-slate-400 italic">
+                &ldquo;Focusing on building practical software solutions, understanding core CS fundamentals, and developing impactful technical projects.&rdquo;
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 02 — EDUCATION SECTION ==================== -->
+    <section id="education" class="scroll-mt-24">
+      
+      <!-- Section Header -->
+      <div class="flex items-center gap-3 mb-8">
+        <div class="p-2 rounded-lg bg-brand-500/10 text-brand-500 border border-brand-500/20">
+          <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-xs font-mono text-brand-500 uppercase tracking-wider font-semibold">01 / Academic Background</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">Education</h2>
+        </div>
+      </div>
+
+      <!-- Education Cards Grid (Separating Degree, Class XII, Class X) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- 1. Bachelor of Technology -->
+        <div class="presentation-focus bg-slate-900/70 border border-slate-800 rounded-xl p-6 flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-500 to-sky-400"></div>
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-500/10 text-brand-200 border border-brand-500/20 font-semibold">
+                Undergraduate
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Aug 2029 (Expected)</span>
+            </div>
+
+            <h3 class="font-display font-bold text-white text-lg group-hover:text-brand-200 transition-colors">
+              Bachelor of Technology (B.Tech)
+            </h3>
+            <p class="text-sm font-medium text-slate-300 mt-1">Computer Science and Engineering</p>
+            
+            <div class="mt-4 text-xs text-slate-400 space-y-1.5">
+              <div class="flex items-center gap-1.5 text-slate-300">
+                <i data-lucide="building" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span class="font-medium">Lovely Professional University</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span>Phagwara, Punjab</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result Tag -->
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-xs text-slate-400">Academic Score:</span>
+            <span class="text-sm font-bold text-brand-200 font-mono bg-brand-500/10 px-2.5 py-1 rounded border border-brand-500/20">
+              CGPA: 8.0
+            </span>
+          </div>
+        </div>
+
+        <!-- 2. Intermediate (Class XII) -->
+        <div class="presentation-focus bg-slate-900/70 border border-slate-800 rounded-xl p-6 flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-full h-1 bg-slate-700"></div>
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 font-semibold">
+                Class XII (Senior Secondary)
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Apr 2021 &ndash; Mar 2023</span>
+            </div>
+
+            <h3 class="font-display font-bold text-white text-lg group-hover:text-slate-100 transition-colors">
+              Intermediate (CBSE)
+            </h3>
+            <p class="text-sm font-medium text-slate-300 mt-1">Senior Secondary Education</p>
+            
+            <div class="mt-4 text-xs text-slate-400 space-y-1.5">
+              <div class="flex items-center gap-1.5 text-slate-300">
+                <i data-lucide="building" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span class="font-medium">Shivam Convent</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span>Patna, Bihar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result Tag -->
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-xs text-slate-400">Board Percentage:</span>
+            <span class="text-sm font-bold text-white font-mono bg-slate-800 px-2.5 py-1 rounded border border-slate-700">
+              76%
+            </span>
+          </div>
+        </div>
+
+        <!-- 3. Matriculation (Class X) -->
+        <div class="presentation-focus bg-slate-900/70 border border-slate-800 rounded-xl p-6 flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-full h-1 bg-slate-700"></div>
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 font-semibold">
+                Class X (Secondary)
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Apr 2019 &ndash; Mar 2020</span>
+            </div>
+
+            <h3 class="font-display font-bold text-white text-lg group-hover:text-slate-100 transition-colors">
+              Secondary Education
+            </h3>
+            <p class="text-sm font-medium text-slate-300 mt-1">CBSE Board</p>
+            
+            <div class="mt-4 text-xs text-slate-400 space-y-1.5">
+              <div class="flex items-center gap-1.5 text-slate-300">
+                <i data-lucide="building" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span class="font-medium">G.D. Goenka</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span>Gaya Ji, Bihar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result Tag -->
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-xs text-slate-400">Board Percentage:</span>
+            <span class="text-sm font-bold text-emerald-400 font-mono bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">
+              89%
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 03 — TECHNICAL & PROFESSIONAL SKILLS ==================== -->
+    <section id="skills" class="scroll-mt-24">
+      
+      <!-- Section Header -->
+      <div class="flex items-center gap-3 mb-8">
+        <div class="p-2 rounded-lg bg-brand-500/10 text-brand-500 border border-brand-500/20">
+          <i data-lucide="code-2" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-xs font-mono text-brand-500 uppercase tracking-wider font-semibold">02 / Competencies</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">Skills Summary</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- 1. Programming Languages -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 space-y-4">
+          <div class="flex items-center gap-2 text-brand-200">
+            <i data-lucide="terminal" class="w-4 h-4"></i>
+            <h3 class="font-display font-semibold text-white text-sm">Languages</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">C</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">C++</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">Python</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">JavaScript</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">HTML</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">CSS</span>
+          </div>
+          <p class="text-[11px] text-slate-400">Core logic, syntax, data structures, and foundational object-oriented programming.</p>
+        </div>
+
+        <!-- 2. Backend & Databases -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 space-y-4">
+          <div class="flex items-center gap-2 text-brand-200">
+            <i data-lucide="database" class="w-4 h-4"></i>
+            <h3 class="font-display font-semibold text-white text-sm">Databases &amp; Backend</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">MySQL</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">PostgreSQL</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">REST APIs</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">LocalStorage API</span>
+          </div>
+          <p class="text-[11px] text-slate-400">Relational schema design, SQL querying, JSON handling, and asynchronous data fetching.</p>
+        </div>
+
+        <!-- 3. Tools & Platforms -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 space-y-4">
+          <div class="flex items-center gap-2 text-brand-200">
+            <i data-lucide="wrench" class="w-4 h-4"></i>
+            <h3 class="font-display font-semibold text-white text-sm">Tools &amp; Platforms</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">VS Code</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">Git</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">GitHub</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">Google Colab</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">LeetCode</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-mono rounded-md border border-slate-700/80 hover:border-brand-500 transition-colors">Arduino IDE</span>
+          </div>
+          <p class="text-[11px] text-slate-400">Version control, notebook environments, coding practice, and embedded hardware workflows.</p>
+        </div>
+
+        <!-- 4. Soft Skills -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 space-y-4">
+          <div class="flex items-center gap-2 text-brand-200">
+            <i data-lucide="users" class="w-4 h-4"></i>
+            <h3 class="font-display font-semibold text-white text-sm">Soft Skills</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-slate-800/90 text-slate-300 text-xs rounded-md border border-slate-700">Team Collaboration</span>
+            <span class="px-2.5 py-1 bg-slate-800/90 text-slate-300 text-xs rounded-md border border-slate-700">Problem-Solving</span>
+            <span class="px-2.5 py-1 bg-slate-800/90 text-slate-300 text-xs rounded-md border border-slate-700">Adaptability</span>
+            <span class="px-2.5 py-1 bg-slate-800/90 text-slate-300 text-xs rounded-md border border-slate-700">Communication</span>
+            <span class="px-2.5 py-1 bg-slate-800/90 text-slate-300 text-xs rounded-md border border-slate-700">Critical Thinking</span>
+            <span class="px-2.5 py-1 bg-slate-800/90 text-slate-300 text-xs rounded-md border border-slate-700">Leadership</span>
+          </div>
+          <p class="text-[11px] text-slate-400">Strengthened through 30 hours of volunteer teaching and collaborative college projects.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 04 — PROJECT WORK SECTION ==================== -->
+    <section id="projects" class="scroll-mt-24">
+      
+      <!-- Section Header -->
+      <div class="flex items-center justify-between gap-4 mb-8 flex-wrap">
+        <div class="flex items-center gap-3">
+          <div class="p-2 rounded-lg bg-brand-500/10 text-brand-500 border border-brand-500/20">
+            <i data-lucide="folder-git-2" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span class="text-xs font-mono text-brand-500 uppercase tracking-wider font-semibold">03 / Applied Work</span>
+            <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">Genuine Projects</h2>
+          </div>
+        </div>
+
+        <span class="text-xs font-mono text-slate-400 bg-slate-900 px-3 py-1.5 rounded-md border border-slate-800">
+          3 Real Projects &bull; Web &amp; Embedded Systems
+        </span>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="space-y-8">
+
+        <!-- ================= PROJECT 1: Weather Forecast Application ================= -->
+        <div class="presentation-focus bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden group">
+          <div class="flex flex-col lg:flex-row gap-8 items-start justify-between">
+            
+            <!-- Left Info -->
+            <div class="space-y-4 max-w-3xl">
+              
+              <!-- Timeline & Category -->
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-1 text-xs font-mono font-semibold rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">
+                  Web Development
+                </span>
+                <span class="text-xs font-mono text-slate-400">Jan 2026 &ndash; Feb 2026</span>
+                <span class="text-xs font-mono text-slate-500">&bull;</span>
+                <span class="text-xs font-mono text-slate-400">GitHub Project</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-xl sm:text-2xl font-display font-bold text-white group-hover:text-brand-200 transition-colors">
+                Weather Forecast Application
+              </h3>
+
+              <!-- Summary -->
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Engineered a responsive weather forecast application utilizing the <strong>OpenWeatherMap REST API</strong>, delivering real-time meteorological metrics including temperature, humidity, wind velocity, and UV index.
+              </p>
+
+              <!-- Technical Implementation Highlights (Presentation Talking Points) -->
+              <div class="space-y-2 pt-1">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Key Implementation Details:</h4>
+                <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500 shrink-0 mt-0.5"></i>
+                    <span><strong>Asynchronous Workflows:</strong> Implemented <code class="text-xs bg-slate-800 px-1 py-0.5 rounded text-sky-300 font-mono">Fetch API</code> with Promises, dynamic search filtering, and automatic geolocation detection.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500 shrink-0 mt-0.5"></i>
+                    <span><strong>Defensive Validation:</strong> Integrated robust error-handling for invalid city inputs and network timeouts to maintain smooth UX.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500 shrink-0 mt-0.5"></i>
+                    <span><strong>Dynamic UI States:</strong> Designed a mobile-first interface with conditional rendering to display custom iconography and backgrounds matching live atmospheric conditions.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">JavaScript</span>
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">REST API</span>
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">Tailwind</span>
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">Fetch / Promises</span>
+              </div>
+
+            </div>
+
+            <!-- Right Interactive Quick Demo Simulator -->
+            <div class="w-full lg:w-72 shrink-0 bg-slate-950/80 border border-slate-800 rounded-xl p-4 flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <span class="text-xs font-mono text-slate-400">Interactive Preview</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              </div>
+
+              <!-- Simulated Weather Widget -->
+              <div id="weatherDemoBox" class="text-center py-4 space-y-2 bg-slate-900/60 rounded-lg border border-slate-800/60 p-3">
+                <i id="demoWeatherIcon" data-lucide="sun" class="w-10 h-10 text-amber-400 mx-auto"></i>
+                <div id="demoCity" class="text-sm font-bold text-white font-display">Patna, IN</div>
+                <div id="demoTemp" class="text-2xl font-bold font-mono text-brand-200">28&deg;C</div>
+                <div id="demoStatus" class="text-xs text-slate-400">Clear Skies &bull; Humidity: 54%</div>
+              </div>
+
+              <div class="flex gap-1.5">
+                <button onclick="simulateCityWeather('Patna', 28, 'Clear Skies', 'sun', 'amber')" class="flex-1 py-1 text-[11px] font-mono rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">Patna</button>
+                <button onclick="simulateCityWeather('Phagwara', 24, 'Scattered Clouds', 'cloud', 'sky')" class="flex-1 py-1 text-[11px] font-mono rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">Phagwara</button>
+                <button onclick="simulateCityWeather('Gaya', 31, 'Light Rain', 'cloud-rain', 'blue')" class="flex-1 py-1 text-[11px] font-mono rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">Gaya</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= PROJECT 2: Task Management System (To-Do List) ================= -->
+        <div class="presentation-focus bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden group">
+          <div class="flex flex-col lg:flex-row gap-8 items-start justify-between">
+            
+            <!-- Left Info -->
+            <div class="space-y-4 max-w-3xl">
+              
+              <!-- Timeline & Category -->
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-1 text-xs font-mono font-semibold rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                  Productivity App
+                </span>
+                <span class="text-xs font-mono text-slate-400">Sep 2025 &ndash; Dec 2025</span>
+                <span class="text-xs font-mono text-slate-500">&bull;</span>
+                <span class="text-xs font-mono text-slate-400">GitHub Project</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-xl sm:text-2xl font-display font-bold text-white group-hover:text-brand-200 transition-colors">
+                Task Management System (To-Do List)
+              </h3>
+
+              <!-- Summary -->
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Architected a dynamic task management web application enabling full <strong>CRUD operations</strong> (Create, Read, Update, Delete) to streamline daily personal workflows and task prioritization.
+              </p>
+
+              <!-- Technical Implementation Highlights -->
+              <div class="space-y-2 pt-1">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Key Implementation Details:</h4>
+                <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500 shrink-0 mt-0.5"></i>
+                    <span><strong>Client-Side Persistence:</strong> Engineered persistent data storage using the browser's <code class="text-xs bg-slate-800 px-1 py-0.5 rounded text-sky-300 font-mono">LocalStorage API</code> with JSON serialization, ensuring zero data loss across reloads.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500 shrink-0 mt-0.5"></i>
+                    <span><strong>Filtering &amp; Toggles:</strong> Implemented category-based filtering (Active, Completed, All), task status toggles, and inline editing with clean DOM manipulation patterns.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500 shrink-0 mt-0.5"></i>
+                    <span><strong>Responsive Layout:</strong> Delivered an optimized user experience across mobile and desktop viewports.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">JavaScript</span>
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">HTML5</span>
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">CSS3</span>
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">LocalStorage API</span>
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">CRUD Operations</span>
+              </div>
+
+            </div>
+
+            <!-- Right Interactive Mini Task Widget -->
+            <div class="w-full lg:w-72 shrink-0 bg-slate-950/80 border border-slate-800 rounded-xl p-4 flex flex-col justify-between space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <span class="text-xs font-mono text-slate-400">Live CRUD Preview</span>
+                <span class="text-[10px] font-mono text-slate-500">Interactive</span>
+              </div>
+
+              <!-- Mini interactive todo container -->
+              <div class="space-y-2">
+                <div class="flex gap-1.5">
+                  <input type="text" id="miniTaskInput" placeholder="Add sample task..." class="flex-1 bg-slate-900 border border-slate-700 text-xs px-2.5 py-1.5 rounded text-white focus:outline-none focus:border-brand-500" onkeydown="if(event.key==='Enter') addMiniTask()" />
+                  <button onclick="addMiniTask()" class="px-2 py-1.5 bg-brand-500 hover:bg-brand-600 text-white rounded text-xs font-bold font-mono">+</button>
+                </div>
+
+                <div id="miniTaskList" class="space-y-1.5 max-h-32 overflow-y-auto pt-1">
+                  <div class="flex items-center justify-between p-2 rounded bg-slate-900 border border-slate-800/80 text-xs text-slate-200">
+                    <span class="truncate">Review B.Tech Syllabus</span>
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 cursor-pointer" onclick="this.parentElement.classList.toggle('line-through')"></i>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-slate-900 border border-slate-800/80 text-xs text-slate-200">
+                    <span class="truncate">Practice LeetCode C++</span>
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 cursor-pointer" onclick="this.parentElement.classList.toggle('line-through')"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-[10px] text-slate-400 text-center font-mono">
+                Click checkmark or press + to test CRUD UI
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= PROJECT 3: Voice Automated Sensored Wheelchair ================= -->
+        <div class="presentation-focus bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden group">
+          <div class="flex flex-col lg:flex-row gap-8 items-start justify-between">
+            
+            <!-- Left Info -->
+            <div class="space-y-4 max-w-3xl">
+              
+              <!-- Timeline & Category -->
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-1 text-xs font-mono font-semibold rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                  Embedded Systems &bull; Hardware &bull; Assistive Tech
+                </span>
+                <span class="text-xs font-mono text-slate-400">Arduino &amp; C++ Project</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-xl sm:text-2xl font-display font-bold text-white group-hover:text-brand-200 transition-colors">
+                Voice Automated Sensored Wheel Chair
+              </h3>
+
+              <!-- Summary -->
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Developed an automatic voice-controlled wheelchair using <strong>Arduino</strong>, voice recognition sensor/module, and ultrasonic + IR sensors to provide hands-free mobility assistance for people with limited physical movement.
+              </p>
+
+              <!-- Technical Implementation Highlights -->
+              <div class="space-y-2 pt-1">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Key Implementation Details:</h4>
+                <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500 shrink-0 mt-0.5"></i>
+                    <span><strong>Voice-Based Directional Control:</strong> Implemented voice command interpretation for forward, backward, left, and right movement.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500 shrink-0 mt-0.5"></i>
+                    <span><strong>Obstacle Sensing:</strong> Integrated ultrasonic and IR sensors for immediate proximity detection and safety braking.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500 shrink-0 mt-0.5"></i>
+                    <span><strong>Assistive Focus:</strong> Engineered the system specifically to provide hands-free mobility assistance for users with physical limitations.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">C++</span>
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">Arduino IDE</span>
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">Voice Sensor Module</span>
+                <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 text-slate-200 border border-slate-700">Ultrasonic &amp; IR Sensors</span>
+              </div>
+
+            </div>
+
+            <!-- Right Hardware Architecture Schematic Box -->
+            <div class="w-full lg:w-72 shrink-0 bg-slate-950/80 border border-slate-800 rounded-xl p-4 flex flex-col justify-between space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <span class="text-xs font-mono text-slate-400">Hardware Pipeline</span>
+                <i data-lucide="cpu" class="w-3.5 h-3.5 text-amber-400"></i>
+              </div>
+
+              <!-- Flow Step Badges -->
+              <div class="space-y-2 text-xs">
+                <div class="p-2 rounded bg-slate-900 border border-slate-800 flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 font-mono text-[10px] flex items-center justify-center font-bold">1</span>
+                  <span class="text-slate-200">Voice Input Command</span>
+                </div>
+                <div class="p-2 rounded bg-slate-900 border border-slate-800 flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-brand-500/20 text-brand-200 font-mono text-[10px] flex items-center justify-center font-bold">2</span>
+                  <span class="text-slate-200">Arduino C++ Processing</span>
+                </div>
+                <div class="p-2 rounded bg-slate-900 border border-slate-800 flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-[10px] flex items-center justify-center font-bold">3</span>
+                  <span class="text-slate-200">Ultrasonic / IR Safety Check</span>
+                </div>
+                <div class="p-2 rounded bg-slate-900 border border-slate-800 flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono text-[10px] flex items-center justify-center font-bold">4</span>
+                  <span class="text-slate-200">Motor Actuation &amp; Motion</span>
+                </div>
+              </div>
+
+              <div class="text-[10px] text-slate-400 text-center font-mono">
+                Hardware Tested &bull; C++ Embedded Firmware
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 05 — EXTRA-CURRICULAR ACTIVITIES & COMMUNITY WORK ==================== -->
+    <section id="activities" class="scroll-mt-24">
+      
+      <!-- Section Header -->
+      <div class="flex items-center gap-3 mb-8">
+        <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider font-semibold">04 / Leadership &amp; Community Service</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">Extra Curricular Activities</h2>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left: Big Metric Badge -->
+          <div class="lg:col-span-4 text-center lg:text-left space-y-3 lg:border-r lg:border-slate-800 lg:pr-8">
+            <span class="text-xs font-mono px-3 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 font-semibold inline-block">
+              June 2026
+            </span>
+            <div class="text-4xl sm:text-5xl font-display font-extrabold text-white">
+              30 <span class="text-emerald-400">Hours</span>
+            </div>
+            <p class="text-sm font-medium text-slate-300">
+              Educational Volunteer Service
+            </p>
+            <p class="text-xs text-slate-400">
+              Dedicated community outreach focused on communication and interpersonal skills for government school students.
+            </p>
+          </div>
+
+          <!-- Right: Detailed Key Contributions -->
+          <div class="lg:col-span-8 space-y-4">
+            <h3 class="text-lg font-display font-bold text-white">
+              Volunteer Educational Service &bull; Government School Students
+            </h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm text-slate-300">
+              <div class="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <i data-lucide="message-square" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span>Conducted sessions focused on communication and interpersonal skills.</span>
+              </div>
+
+              <div class="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span>Helped students improve their confidence, speaking, and presentation abilities.</span>
+              </div>
+
+              <div class="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <i data-lucide="users-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span>Engaged students through interactive activities and practical communication exercises.</span>
+              </div>
+
+              <div class="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/60 border border-slate-800/80">
+                <i data-lucide="trophy" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span>Contributed to the students' overall personal and academic development through community service.</span>
+              </div>
+            </div>
+
+            <!-- Presentation Talking Point -->
+            <div class="p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/20 text-xs text-emerald-200">
+              <strong>Presentation Talking Point:</strong> &ldquo;This experience allowed me to practice leadership, empathy, and clear communication while making a tangible difference for young students.&rdquo;
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 06 — CERTIFICATES ==================== -->
+    <section id="certifications" class="scroll-mt-24">
+      
+      <!-- Section Header -->
+      <div class="flex items-center gap-3 mb-8">
+        <div class="p-2 rounded-lg bg-brand-500/10 text-brand-500 border border-brand-500/20">
+          <i data-lucide="award" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-xs font-mono text-brand-500 uppercase tracking-wider font-semibold">05 / Verifications</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">Certificates</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- 1. WEB - A - THON 2.0 -->
+        <div class="presentation-focus bg-slate-900/70 border border-slate-800 rounded-xl p-6 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="p-2 rounded-lg bg-brand-500/10 text-brand-400">
+                <i data-lucide="code" class="w-5 h-5"></i>
+              </span>
+              <span class="text-xs font-mono text-slate-400">Feb 2025</span>
+            </div>
+            
+            <h3 class="font-display font-bold text-white text-base group-hover:text-brand-200 transition-colors">
+              WEB - A - THON 2.0
+            </h3>
+            <p class="text-xs text-slate-400">Web Development Hackathon &bull; Certificate</p>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Certified participation in the WEB - A - THON 2.0 competition, focusing on web development fundamentals and creative execution.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Status</span>
+            <span class="font-mono font-medium text-emerald-400 flex items-center gap-1">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i> Verified Certificate
+            </span>
+          </div>
+        </div>
+
+        <!-- 2. ALGO - N - HUNT -->
+        <div class="presentation-focus bg-slate-900/70 border border-slate-800 rounded-xl p-6 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="p-2 rounded-lg bg-amber-500/10 text-amber-400">
+                <i data-lucide="binary" class="w-5 h-5"></i>
+              </span>
+              <span class="text-xs font-mono text-slate-400">Dec 2025</span>
+            </div>
+            
+            <h3 class="font-display font-bold text-white text-base group-hover:text-amber-200 transition-colors">
+              ALGO &ndash; N &ndash; HUNT
+            </h3>
+            <p class="text-xs text-slate-400">Algorithms &amp; Problem Solving &bull; Certificate</p>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Certified for algorithmic problem solving, testing logical deduction, coding speed, and algorithmic concepts.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Status</span>
+            <span class="font-mono font-medium text-emerald-400 flex items-center gap-1">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i> Verified Certificate
+            </span>
+          </div>
+        </div>
+
+        <!-- 3. Time Management Tips -->
+        <div class="presentation-focus bg-slate-900/70 border border-slate-800 rounded-xl p-6 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
+                <i data-lucide="clock" class="w-5 h-5"></i>
+              </span>
+              <span class="text-xs font-mono text-slate-400">Nov 2025</span>
+            </div>
+            
+            <h3 class="font-display font-bold text-white text-base group-hover:text-indigo-200 transition-colors">
+              Time Management Tips
+            </h3>
+            <p class="text-xs text-slate-400">Productivity &amp; Professional Development &bull; Certificate</p>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Certified completion of training on workflow organization, personal productivity techniques, and task prioritization.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Status</span>
+            <span class="font-mono font-medium text-emerald-400 flex items-center gap-1">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i> Verified Certificate
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 07 — CAREER DIRECTION & VISION ==================== -->
+    <section id="career" class="scroll-mt-24">
+      
+      <!-- Section Header -->
+      <div class="flex items-center gap-3 mb-8">
+        <div class="p-2 rounded-lg bg-brand-500/10 text-brand-500 border border-brand-500/20">
+          <i data-lucide="compass" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-xs font-mono text-brand-500 uppercase tracking-wider font-semibold">06 / Forward Path</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">Career Goals &amp; Growth Focus</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-6 space-y-3">
+          <div class="w-8 h-8 rounded bg-brand-500/10 text-brand-400 flex items-center justify-center font-mono font-bold text-xs">01</div>
+          <h3 class="font-display font-bold text-white text-base">DSA &amp; Problem Solving</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Consistently practicing Data Structures &amp; Algorithms using <strong>C++, Python, and JavaScript</strong> on LeetCode to build rock-solid foundational problem-solving abilities.
+          </p>
+        </div>
+
+        <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-6 space-y-3">
+          <div class="w-8 h-8 rounded bg-sky-500/10 text-sky-400 flex items-center justify-center font-mono font-bold text-xs">02</div>
+          <h3 class="font-display font-bold text-white text-base">Full-Stack &amp; Databases</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Strengthening backend engineering with <strong>MySQL &amp; PostgreSQL</strong>, building responsive web interfaces, and mastering RESTful API development.
+          </p>
+        </div>
+
+        <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-6 space-y-3">
+          <div class="w-8 h-8 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-mono font-bold text-xs">03</div>
+          <h3 class="font-display font-bold text-white text-base">Internship &amp; Collaborative Work</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Seeking software engineering internships and team-oriented environments to apply classroom learnings and build real-world software solutions.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 08 — CONTACT & PRESENTATION FOOTER ==================== -->
+    <section id="contact" class="scroll-mt-24 pt-4">
+      <div class="bg-gradient-to-b from-slate-900 to-[#0F1626] border border-slate-800 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+        
+        <div class="max-w-2xl mx-auto space-y-6">
+          <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 border border-brand-500/20 flex items-center justify-center mx-auto">
+            <i data-lucide="mail-check" class="w-6 h-6"></i>
+          </div>
+
+          <div class="space-y-2">
+            <h2 class="text-2xl sm:text-4xl font-display font-bold text-white tracking-tight">Let's Connect</h2>
+            <p class="text-sm text-slate-300">
+              Open for software development opportunities, academic collaborations, and tech discussions.
+            </p>
+          </div>
+
+          <!-- Contact Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <a href="mailto:alokyt776209@gmail.com" class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-brand-500/60 transition-all flex items-center gap-3 text-left group">
+              <div class="p-2.5 rounded-lg bg-slate-900 text-brand-400 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono text-slate-400 block">Email</span>
+                <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-200 transition-colors">alokyt776209@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="tel:6202735894" class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-brand-500/60 transition-all flex items-center gap-3 text-left group">
+              <div class="p-2.5 rounded-lg bg-slate-900 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono text-slate-400 block">Phone</span>
+                <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-emerald-200 transition-colors">+91 6202735894</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="flex items-center justify-center gap-4 pt-4">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium inline-flex items-center gap-2 transition-all">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>Alok | GitHub</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium inline-flex items-center gap-2 transition-all">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+              <span>Alok | LinkedIn</span>
+            </a>
+          </div>
+
+          <!-- Academic Presentation Badge -->
+          <div class="pt-6 border-t border-slate-800/80 text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <span>Prepared for <strong>PEL / CA Evaluation</strong> &bull; Lovely Professional University</span>
+            <span class="font-mono text-slate-400">Student ID Portfolio &bull; 2026</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-400 mt-16 relative z-10">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded bg-brand-500 text-white font-bold text-xs flex items-center justify-center">AK</div>
+        <span class="font-medium text-slate-300">Alok Kumar &bull; B.Tech Computer Science &amp; Engineering</span>
+      </div>
+      <div>
+        <span>Built with HTML5, Tailwind CSS &amp; Vanilla JavaScript &bull; 100% Authentic Profile</span>
+      </div>
+      <a href="#hero" class="text-brand-400 hover:text-brand-300 font-mono flex items-center gap-1">
+        <span>Back to Top</span> &uarr;
+      </a>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    // Initialize Lucide Icons
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+
+    // Toggle Presentation Guide Mode
+    function togglePresentationGuide() {
+      const banner = document.getElementById('presentationBanner');
+      const btn = document.getElementById('presModeBtn');
+      if (banner.classList.contains('hidden')) {
+        banner.classList.remove('hidden');
+        if (btn) btn.classList.add('border-brand-500', 'text-brand-300');
+      } else {
+        banner.classList.add('hidden');
+        if (btn) btn.classList.remove('border-brand-500', 'text-brand-300');
+      }
+    }
+
+    // Toggle Mobile Navigation
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Interactive Demo 1: Weather Simulator
+    function simulateCityWeather(city, temp, status, iconName, color) {
+      const cityEl = document.getElementById('demoCity');
+      const tempEl = document.getElementById('demoTemp');
+      const statusEl = document.getElementById('demoStatus');
+      const iconEl = document.getElementById('demoWeatherIcon');
+
+      cityEl.textContent = `${city}, IN`;
+      tempEl.innerHTML = `${temp}&deg;C`;
+      statusEl.textContent = `${status} &bull; Live API Simulation`;
+
+      // Update Icon
+      iconEl.setAttribute('data-lucide', iconName);
+      iconEl.className = `w-10 h-10 mx-auto text-${color}-400`;
+      lucide.createIcons();
+    }
+
+    // Interactive Demo 2: Mini Task Manager CRUD Preview
+    function addMiniTask() {
+      const input = document.getElementById('miniTaskInput');
+      const list = document.getElementById('miniTaskList');
+      const taskText = input.value.trim();
+
+      if (!taskText) return;
+
+      const item = document.createElement('div');
+      item.className = 'flex items-center justify-between p-2 rounded bg-slate-900 border border-slate-800/80 text-xs text-slate-200';
+      item.innerHTML = `
+        <span class="truncate">${escapeHtml(taskText)}</span>
+        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 cursor-pointer" onclick="this.parentElement.classList.toggle('line-through')"></i>
+      `;
+
+      list.prepend(item);
+      input.value = '';
+      lucide.createIcons();
+    }
+
+    // Security Helper to avoid XSS in live interactive input
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    // Smooth active navigation highlight on scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const scrollY = window.pageYOffset;
+
+      sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 120;
+        const sectionId = current.getAttribute('id');
+        const navLink = document.querySelector(`header nav a[href*="${sectionId}"]`);
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          if (navLink) {
+            navLink.classList.add('text-brand-300', 'bg-slate-800/80');
+          }
+        } else {
+          if (navLink) {
+            navLink.classList.remove('text-brand-300', 'bg-slate-800/80');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
